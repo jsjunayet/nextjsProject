@@ -5,7 +5,6 @@ import React from 'react';
 
 const layout = async({children}) => {
     const {data} = await getcategory()
-    console.log(data)
     return (
        
      <Box>
@@ -15,7 +14,7 @@ const layout = async({children}) => {
           {
             data.map((item) => (
               <Button variant='outlined'  key={item.id}>
-                <Link href={`/category/news?category=${item.title}`}>{item.title}</Link>
+                <Link href={`/category/news?category=${item.title.toLowerCase()}`}>{item.title}</Link>
                 </Button>
             ))}
             </Stack>

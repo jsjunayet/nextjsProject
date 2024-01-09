@@ -1,17 +1,25 @@
 import { querydata } from '@/component/ui/getcateory';
+import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
 const page = async({searchParams}) => {
     const category = searchParams.category;
     const newcategoryies = await querydata(category)
-    console.log(newcategoryies.data);
     
    
     return (
-        <div>
-            <h1>Dyanmic page : {category}</h1>
-           
-        </div>
+       <Box sx={{mt:2}}>
+        <Grid>
+            <Grid item sx={2}>
+        {
+            newcategoryies.data?.map((item)=><Box key={item?._id}>
+                <Typography>{item?.category}</Typography>
+
+            </Box>)
+        }
+        </Grid>
+        </Grid>
+       </Box>
     );
 };
 
