@@ -27,7 +27,7 @@ const Navbar = ()=> {
             route:"Pages"
         },
         {
-            pathname:'/category',
+            pathname:'/category/news',
             route:"Category"
         },
         {
