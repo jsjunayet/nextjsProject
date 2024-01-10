@@ -2,6 +2,7 @@
 import { querydata } from '@/component/ui/getcateory';
 import { Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const page = async({searchParams}) => {
@@ -13,8 +14,8 @@ const page = async({searchParams}) => {
           {
             newcategoryies.data?.map((item) => (
               <Grid item key={item?._id} xs={6}>
-              
-  <Card sx={{height:"100%"}}>
+              <Link href={`/${item.category.toLowerCase()}/${item._id}`}>
+              <Card sx={{height:"100%"}}>
       <CardActionArea>
         <CardMedia sx={ {
                 "& img":{
@@ -37,7 +38,8 @@ const page = async({searchParams}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-  </Card>
+               </Card>
+              </Link>
 
               </Grid>
             ))
